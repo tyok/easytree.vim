@@ -525,6 +525,22 @@ function! s:Refresh(linen)
     endif
 endfunction
 
+function! s:Grep(linen, grep)
+    let linen = a:linen
+    if linen == 2
+        let linen = 1
+    endif
+    let fpath = s:GetFullPathDir(linen)
+    let cwd = getcwd()
+    let relpath = substitute(fpath, l:cwd, "", "")
+    let grep = s:AskInputComplete('grep in .'.relpath.' for ',a:grep,'file')
+    if !empty(grep)
+        echo 'grepping for '.grep
+        exe "silent! grep! ".grep." .".relpath
+        redraw!
+    endif
+endfunction
+
 function! s:Find(linen, find)
     let linen = a:linen
     if linen == 2
@@ -1161,6 +1177,7 @@ function! easytree#OpenTree(win, dir)
     nnoremap <silent> <buffer> x :call <SID>Unexpand(line('.'))<CR>
     nnoremap <silent> <buffer> X :call <SID>UnexpandAll(line('.'))<CR>
     nnoremap <silent> <buffer> f :call <SID>Find(line('.'),'')<CR>
+    nnoremap <silent> <buffer> gss :call <SID>Grep(line('.'),'')<CR>
     nnoremap <silent> <buffer> zf :call <SID>EditIgnoreFiles()<CR>
     nnoremap <silent> <buffer> zd :call <SID>EditIgnoreDirs()<CR>
     nnoremap <silent> <buffer> zs :call <SID>EditIgnoreFindResult()<CR>
