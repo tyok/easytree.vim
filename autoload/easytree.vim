@@ -1170,6 +1170,7 @@ function! easytree#OpenTree(win, dir)
     nnoremap <silent> <buffer> u :call <SID>GoUpTree()<CR>
     nnoremap <silent> <buffer> C :call <SID>ChangeDir(line('.'))<CR>
     nnoremap <silent> <buffer> c :call <SID>RenameFile(line('.'))<CR>
+    nnoremap <silent> <buffer> cc :call <SID>RenameFile(line('.'))<CR>
     nnoremap <silent> <buffer> cd :call <SID>ChangeCwdDir(line('.'))<CR>
     nnoremap <silent> <buffer> m :call <SID>CreateFile(line('.'))<CR>
     nnoremap <silent> <buffer> r :call <SID>Refresh(line('.'))<CR>
