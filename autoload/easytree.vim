@@ -1165,8 +1165,8 @@ function! easytree#OpenTree(win, dir)
     nnoremap <silent> <buffer> zd :call <SID>EditIgnoreDirs()<CR>
     nnoremap <silent> <buffer> zs :call <SID>EditIgnoreFindResult()<CR>
     nnoremap <silent> <buffer> F :call <SID>Find(line('.'),b:find)<CR>
-    nnoremap <silent> <buffer> n :call <SID>FindNext()<CR>
-    nnoremap <silent> <buffer> N :call <SID>FindBackward()<CR>
+    nnoremap <silent> <buffer> <C-n> :call <SID>FindNext()<CR>
+    nnoremap <silent> <buffer> <C-p> :call <SID>FindBackward()<CR>
     nnoremap <silent> <buffer> u :call <SID>GoUpTree()<CR>
     nnoremap <silent> <buffer> C :call <SID>ChangeDir(line('.'))<CR>
     nnoremap <silent> <buffer> c :call <SID>RenameFile(line('.'))<CR>
