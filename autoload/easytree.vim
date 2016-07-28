@@ -1190,6 +1190,7 @@ function! easytree#OpenTree(win, dir)
     nnoremap <silent> <buffer> cc :call <SID>RenameFile(line('.'))<CR>
     nnoremap <silent> <buffer> cd :call <SID>ChangeCwdDir(line('.'))<CR>
     nnoremap <silent> <buffer> m :call <SID>CreateFile(line('.'))<CR>
+    nnoremap <silent> <buffer> a :call <SID>CreateFile(line('.'))<CR>
     nnoremap <silent> <buffer> r :call <SID>Refresh(line('.'))<CR>
     nnoremap <silent> <buffer> R :call <SID>RefreshAll()<CR>
     nnoremap <silent> <buffer> i :try \| call <SID>GetInfo(line('.')) \| finally \| exe 'py easytree.easytree_dirsize_calculator=None' \| endtry<CR>
