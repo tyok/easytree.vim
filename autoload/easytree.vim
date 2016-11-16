@@ -375,10 +375,8 @@ function! s:PasteFiles(linen)
         for f in files
             echo f
         endfor
-        if s:AskConfirmation('are you sure you want to paste '.filesm.'?')
-            python easytree.EasyTreeCopyFiles()
-            call s:Refresh(a:linen)
-        endif
+        python easytree.EasyTreeCopyFiles()
+        call s:Refresh(a:linen)
     endif
 endfunction
 

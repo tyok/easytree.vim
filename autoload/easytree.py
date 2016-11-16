@@ -139,20 +139,15 @@ def EasyTreeCopyFiles():
             if not os.path.exists(dst):
                 copy = True
             else:
-                vim.command("echom '"+dst+" already exists'")
-                if int(vim.eval("<SID>AskConfirmationNoRedraw('would you like to overwrite it?')")) == 1:
-                    copy = True
-                    overwrite = True
-                elif int(vim.eval("<SID>AskConfirmationNoRedraw('would you like to paste it as another file?')")) == 1:
-                    while True:
-                        newbase = vim.eval("<SID>AskInputNoRedraw('"+dpath+"','"+base+"')")
-                        if newbase == None or len(newbase) == 0:
-                            break
-                        elif not os.path.exists(dpath+newbase):
-                            copy = True
-                            dst = dpath+newbase
-                            vim.command("echom 'saving file as "+dst+"'")
-                            break
+                while True:
+                    newbase = vim.eval("<SID>AskInputNoRedraw('"+dpath+"','"+base+"')")
+                    if newbase == None or len(newbase) == 0:
+                        break
+                    elif not os.path.exists(dpath+newbase):
+                        copy = True
+                        dst = dpath+newbase
+                        vim.command("echom 'saving file as "+dst+"'")
+                        break
             if copy:
                 if f != dst:
                     try:
